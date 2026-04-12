@@ -49,24 +49,31 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right column — metrics stack */}
+        {/* Right column — proof stack */}
         <div className="lg:col-span-5 hidden lg:flex flex-col gap-[var(--space-s)] animate-hero-delay-3">
+          <div className="glass-card p-5 flex items-baseline gap-4">
+            <span className="text-[var(--step-3)] font-bold gradient-text leading-none">
+              $50M+
+            </span>
+            <span className="text-[var(--step--1)] text-text-tertiary">
+              Revenue Generated
+            </span>
+          </div>
           {[
-            { value: "20K+", label: "Lines of Shipped Code" },
-            { value: "4", label: "Autonomous AI Agents" },
-            { value: "7", label: "Client Testimonials" },
-            { value: "$50M+", label: "Revenue Generated" },
-          ].map((stat) => (
+            { quote: "\u201CTrue partner rather than a vendor.\u201D", author: "Griffin Lay", title: "Director, Omnicom" },
+            { quote: "\u201CProvides the exact deliverable needed the first time.\u201D", author: "Federico Lee", title: "Director, IPG/Kinesso" },
+            { quote: "\u201CMost reliable and responsive partners.\u201D", author: "Trisha Chandra", title: "Media Manager, Uber" },
+          ].map((t) => (
             <div
-              key={stat.label}
-              className="glass-card p-5 flex items-baseline gap-4"
+              key={t.author}
+              className="glass-card p-5"
             >
-              <span className="text-[var(--step-3)] font-bold gradient-text leading-none">
-                {stat.value}
-              </span>
-              <span className="text-[var(--step--1)] text-text-tertiary">
-                {stat.label}
-              </span>
+              <p className="text-[var(--step--1)] text-text-secondary leading-relaxed italic mb-2">
+                {t.quote}
+              </p>
+              <p className="text-[var(--step--2)] text-text-tertiary">
+                {t.author} — {t.title}
+              </p>
             </div>
           ))}
         </div>

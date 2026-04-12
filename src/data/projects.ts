@@ -20,7 +20,7 @@ export const projects: readonly Project[] = [
     title: "B.Nye Job Engine",
     subtitle: "AI Agent Orchestration Platform",
     description:
-      "End-to-end event-driven orchestration platform with 5 microservices, 4 specialized AI agents, and a 12-source parallel discovery engine. Coordinates research, content generation, and multi-system integration in under 60 seconds.",
+      "An enterprise-scale workflow required coordinating 12 data sources, 4 AI models, and 6 output systems with zero manual handoffs. I built an event-driven platform where 5 microservices and 4 specialized agents dispatch in parallel — research, content, outreach, and identification — completing full cycles in under 60 seconds.",
     demo: "interactive",
     stack: ["Python", "Claude SDK", "MCP", "React", "Playwright"],
     repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-pipeline-intelligence",
@@ -39,7 +39,7 @@ export const projects: readonly Project[] = [
     title: "B.Nye Approval Engine",
     subtitle: "Multi-Stage Workflow Orchestration",
     description:
-      "Full-stack approval orchestration engine with an 8-state workflow, 4 autonomous Claude Agent SDK workers, XML protocol generation with compliance wrapping, and a platform-agnostic adapter pattern supporting multi-system integration.",
+      "A creative ops team was losing 3 days per approval cycle — compliance checks were manual, platform uploads serialized, and every handoff was an error point. I built an 8-state workflow with 4 autonomous AI agents handling content, compliance, integration, and analysis, plus a platform adapter pattern that routes to any downstream system without touching core logic.",
     demo: "showcase",
     stack: ["Python", "Claude SDK", "React", "Supabase", "Docker"],
     repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-approval-engine",
@@ -58,7 +58,7 @@ export const projects: readonly Project[] = [
     title: "B.Nye Retail Media Dashboard",
     subtitle: "7-Level Enterprise Analytics",
     description:
-      "Enterprise analytics dashboard with 7-level hierarchical drill-down, dual executive/operator modes, real-time transaction feeds, and 9 composable chart components spanning agency, client, campaign, and creative dimensions.",
+      "A retail media agency managing 8 clients across 23 campaigns had no way to see both the executive summary and deal-level detail in one system. I built a dual-mode dashboard — executives see KPI tiles and conversion trends, operators drill through 7 hierarchical levels from agency to creative — with 9 composable chart components and real-time transaction feeds.",
     demo: "showcase",
     stack: ["React", "Recharts", "Tailwind", "Vite"],
     repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-retail-dashboard",
@@ -74,10 +74,10 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "march-madness-agent",
-    title: "B.Nye March Madness Agent",
-    subtitle: "Real-Time Data Pipeline & Autonomous CI/CD",
+    title: "B.Nye Real-Time Data Pipeline",
+    subtitle: "Autonomous ETL + Fuzzy Entity Resolution",
     description:
-      "Automated real-time data pipeline with live API integration, fuzzy entity resolution for name matching, GitHub Actions-driven 5-minute autonomous sync cycles, and an interactive dashboard with live score animations.",
+      "Real-time data from external APIs arrives with inconsistent entity names, unpredictable update frequencies, and no guaranteed schema. I built an autonomous pipeline that resolves entities via 3-pass fuzzy matching, syncs every 5 minutes via GitHub Actions, and ran for 6 weeks with zero manual intervention — 912 autonomous commits, 95% test coverage.",
     demo: "showcase",
     stack: ["Python", "Playwright", "GitHub Actions", "NCAA API"],
     repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-march-madness",

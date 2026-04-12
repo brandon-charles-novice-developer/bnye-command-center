@@ -28,11 +28,11 @@ export interface ProjectContent {
 export const projectContent: Record<string, ProjectContent> = {
   "approval-engine": {
     slug: "approval-engine",
-    headline: "Multi-stage approval orchestration with 4 autonomous AI agents and a platform-agnostic adapter pattern",
+    headline: "A creative ops team was losing 3 days per approval cycle. I cut it to hours.",
     problemStatement:
-      "Complex approval workflows require coordinating multiple stakeholders, compliance checks, and downstream system integrations. Manual processes are error-prone, slow, and don't scale across platforms.",
+      "Compliance checks were manual. Platform uploads were serialized. Every handoff between content creation, legal review, and platform integration was a potential error point. The team needed automation without sacrificing the audit trail that compliance requires.",
     solutionNarrative:
-      "A state machine-driven orchestration engine where 4 specialized AI agents handle content generation, compliance review, integration management, and pipeline analysis autonomously. A platform adapter pattern decouples the core workflow from any specific downstream system — Platform A, B, or C can be swapped without touching the approval logic.",
+      "I built a state machine that enforces valid transitions and creates an audit event on every state change. 4 AI agents handle content generation, compliance validation, platform integration, and pipeline analysis autonomously. A platform adapter pattern decouples core workflow from downstream systems — swap Platform A for Platform C without touching approval logic. Turnaround went from days to hours.",
     architectureNodes: [
       { id: "workflow", label: "Approval Workflow", description: "8-state machine: Draft → Review → Approved → Integrated → Active", type: "service" },
       { id: "content-dir", label: "Content Director", description: "Claude Sonnet — generates optimized content from briefs", type: "agent" },
@@ -117,11 +117,11 @@ class PlatformA(PlatformAdapter):
 
   "retail-dashboard": {
     slug: "retail-dashboard",
-    headline: "Enterprise analytics dashboard with 7-level hierarchical drill-down and dual executive/operator modes",
+    headline: "A retail media agency couldn't see the forest and the trees. I built both views.",
     problemStatement:
-      "Enterprise analytics require navigating complex data hierarchies — from executive KPIs down to individual creative performance — without losing context or overwhelming users at any level.",
+      "Executives needed campaign performance at a glance — ROAS, conversion trends, sales lift. Campaign managers needed to drill into individual deal-level creative performance without losing the bigger picture. No single tool served both audiences, so decisions were slow and context was constantly lost.",
     solutionNarrative:
-      "A dual-mode dashboard where executives see KPI tiles, conversion charts, and AI-powered insights, while operators drill through 7 hierarchical levels (agency → client → campaign → ad group → package → deal → creative) with breadcrumb navigation and contextual metrics at every level.",
+      "I built a dual-mode dashboard. Executives see KPI tiles, conversion charts, and shopper insights. Operators drill through 7 hierarchical levels — agency to creative — with breadcrumb navigation and contextual metrics at every level. Same data source, two cognitive loads. The mode toggle switches the entire interface in one click.",
     architectureNodes: [
       { id: "executive", label: "Executive Mode", description: "KPI scoreboard, conversion charts, AI insight cards, live transaction feed", type: "service" },
       { id: "manager", label: "Operator Mode", description: "7-level drill-down with breadcrumb nav and contextual metrics", type: "service" },
@@ -178,11 +178,11 @@ class PlatformA(PlatformAdapter):
 
   "march-madness-agent": {
     slug: "march-madness-agent",
-    headline: "Real-time data pipeline with fuzzy entity resolution, autonomous CI/CD, and live dashboard",
+    headline: "External API data was inconsistent and unstructured. I built a pipeline that ran for 6 weeks unattended.",
     problemStatement:
-      "Live sporting events generate rapidly changing data across inconsistent sources. Player names vary between systems, scores update every few minutes, and the pipeline must run autonomously for weeks without manual intervention.",
+      "Real-time data from external APIs arrived with inconsistent entity names, unpredictable update frequencies, and no guaranteed schema. The system needed to resolve entities across sources, track state changes, and serve a live dashboard — autonomously, for 6 weeks, with zero manual intervention.",
     solutionNarrative:
-      "An automated pipeline that syncs NCAA tournament data every 5 minutes via GitHub Actions, resolves player entities using multi-pass fuzzy matching (exact → last name + team → normalized variants), tracks elimination state, and serves a live leaderboard dashboard with animated score updates.",
+      "I built an automated sync pipeline that polls every 5 minutes via GitHub Actions, resolves entity names using 3-pass fuzzy matching (exact name → last name + team → normalized variants), tracks elimination state, and generates dashboard-ready JSON. 912 autonomous commits over 6 weeks. Zero manual fixes required.",
     architectureNodes: [
       { id: "api", label: "NCAA API Client", description: "Fetches game results and box scores per round", type: "integration" },
       { id: "matcher", label: "Fuzzy Entity Resolver", description: "3-pass name matching: exact → last name + team → normalized (strips Jr/Sr/III)", type: "service" },
@@ -257,11 +257,11 @@ class PlatformA(PlatformAdapter):
 
   "job-engine": {
     slug: "job-engine",
-    headline: "End-to-end AI orchestration platform with 5 event-driven microservices, 4 specialized agents, and 12-source parallel discovery",
+    headline: "12 data sources, 4 AI models, 6 output systems. No existing tool could coordinate them. So I built one.",
     problemStatement:
-      "Coordinating multi-step workflows across disparate data sources, AI models, and external systems requires an orchestration layer that handles parallel execution, event-driven state management, and atomic data operations.",
+      "Running an enterprise-scale workflow across 12 data sources, 4 AI models, and 6 output systems required coordination that no existing tool provided. Each step — research, content generation, outreach, and pipeline tracking — was manual, sequential, and error-prone. The system needed to run autonomously, learn from outcomes, and improve without manual tuning.",
     solutionNarrative:
-      "An event-driven microservices architecture where 5 independent services communicate through an append-only event log with file-level locking. 4 specialized AI agents (research, content, outreach, identification) dispatch in parallel with clear input/output contracts. A 12-source discovery engine aggregates, deduplicates, and scores results using learned modifiers from outcome feedback.",
+      "I built an event-driven microservices platform. 5 independent services communicate through an append-only event log with file-level locking. 4 specialized AI agents dispatch in parallel with 5-second target SLA and typed input/output contracts. A 12-source discovery engine aggregates, deduplicates, and scores results — then feeds outcomes back into scoring weights. The system gets smarter every cycle.",
     architectureNodes: [
       { id: "scanner", label: "Scout Scanner", description: "12-source parallel search with ecosystem gating and 9-criteria scoring", type: "service" },
       { id: "sentinel", label: "Gmail Sentinel", description: "Real-time email monitoring with NLP classification and pipeline matching", type: "service" },
