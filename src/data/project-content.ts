@@ -28,11 +28,11 @@ export interface ProjectContent {
 export const projectContent: Record<string, ProjectContent> = {
   "approval-engine": {
     slug: "approval-engine",
-    headline: "A creative ops team was losing 3 days per approval cycle. I cut it to hours.",
+    headline: "Creative approvals took 3 days because static and animated reviews ran blind. I built a two-phase system.",
     problemStatement:
-      "Compliance checks were manual. Platform uploads were serialized. Every handoff between content creation, legal review, and platform integration was a potential error point. The team needed automation without sacrificing the audit trail that compliance requires.",
+      "Static mockups and animated demos were reviewed simultaneously with no dependency chain. Animated reviews started before static was even approved — wasting designer time on assets that got rejected. SLA deadlines ignored business hours, so a 48-hour SLA issued Friday at 5pm was technically due Sunday. The team needed sequential phases with real-world deadline tracking.",
     solutionNarrative:
-      "I built a state machine that enforces valid transitions and creates an audit event on every state change. 4 AI agents handle content generation, compliance validation, platform integration, and pipeline analysis autonomously. A platform adapter pattern decouples core workflow from downstream systems — swap Platform A for Platform C without touching approval logic. Turnaround went from days to hours.",
+      "I built a two-phase approval workflow: static review first (48h SLA), animated review only after static approval (24h SLA per revision). SLA calculations respect business hours (M-F, 9am-6pm EST). Role-based dashboards show different views for internal teams vs. external clients. Priority grouping by business impact — not arbitrary urgency — so the team works on what matters first. Four platform adapters route approved assets to any downstream system.",
     architectureNodes: [
       { id: "workflow", label: "Approval Workflow", description: "8-state machine: Draft → Review → Approved → Integrated → Active", type: "service" },
       { id: "content-dir", label: "Content Director", description: "Claude Sonnet — generates optimized content from briefs", type: "agent" },
