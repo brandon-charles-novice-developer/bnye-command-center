@@ -22,6 +22,14 @@ export function GlassNav() {
           </Link>
         ))}
         <a
+          href="/assets/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-underline text-[var(--step--1)] font-medium text-text-secondary hover:text-text-primary transition-colors duration-300"
+        >
+          Resume
+        </a>
+        <a
           href="/assets/testimonials.pdf"
           target="_blank"
           rel="noopener noreferrer"
