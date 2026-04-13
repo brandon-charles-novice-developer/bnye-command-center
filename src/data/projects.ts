@@ -16,6 +16,25 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
+    slug: "approval-engine",
+    title: "B.Nye Design Approval System",
+    subtitle: "Two-Phase Creative Workflow with SLA Tracking",
+    description:
+      "Amazon's largest line of business told us our creative approval process was too slow and too hard to manage. Instead of pushing back, I took action — I built a two-phase approval system from scratch to streamline the process, sequencing static and animated reviews with business-hours-aware SLA tracking. This wasn't in my job description. I built it because every day a creative sat in approval limbo was a day of lost revenue from the flight. The system was rolled out company-wide and became a core part of the white-glove service that retains enterprise clients.",
+    demo: "showcase",
+    stack: ["React", "TypeScript", "Tailwind", "React Flow"],
+    repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-design-approval",
+    liveUrl: "https://bnye-design-approval.vercel.app",
+    metrics: [
+      { label: "Workflow Phases", value: "2" },
+      { label: "Platform Adapters", value: "4" },
+      { label: "SLA Engine", value: "48/24h" },
+      { label: "Environments", value: "3" },
+    ],
+    accentColor: "var(--accent-purple)",
+    designPattern: "Ethical UX / SLA-Driven Workflow",
+  },
+  {
     slug: "job-engine",
     title: "B.Nye Job Engine",
     subtitle: "AI Agent Orchestration Platform",
@@ -33,25 +52,6 @@ export const projects: readonly Project[] = [
     ],
     accentColor: "var(--accent-primary)",
     designPattern: "Generative UI + Agentic AI",
-  },
-  {
-    slug: "approval-engine",
-    title: "B.Nye Design Approval System",
-    subtitle: "Two-Phase Creative Workflow with SLA Tracking",
-    description:
-      "Creative approval cycles were taking 3+ days because static and animated reviews happened in parallel, compliance was manual, and SLA deadlines had no business-hours awareness. I built a two-phase workflow — static review first (48h SLA), then animated review (24h SLA) — with role-based dashboards, priority-grouped workloads, and platform-agnostic integration adapters.",
-    demo: "showcase",
-    stack: ["React", "TypeScript", "Tailwind", "React Flow"],
-    repoUrl: "https://github.com/brandon-charles-novice-developer/bnye-design-approval",
-    liveUrl: "https://bnye-design-approval.vercel.app",
-    metrics: [
-      { label: "Workflow Phases", value: "2" },
-      { label: "Platform Adapters", value: "4" },
-      { label: "SLA Engine", value: "48/24h" },
-      { label: "Environments", value: "3" },
-    ],
-    accentColor: "var(--accent-purple)",
-    designPattern: "Ethical UX / SLA-Driven Workflow",
   },
   {
     slug: "retail-dashboard",

@@ -28,11 +28,11 @@ export interface ProjectContent {
 export const projectContent: Record<string, ProjectContent> = {
   "approval-engine": {
     slug: "approval-engine",
-    headline: "Creative approvals took 3 days because static and animated reviews ran blind. I built a two-phase system.",
+    headline: "Amazon's #1 LOB said our approvals were too slow. I built the system that fixed it — and it went company-wide.",
     problemStatement:
-      "Static mockups and animated demos were reviewed simultaneously with no dependency chain. Animated reviews started before static was even approved — wasting designer time on assets that got rejected. SLA deadlines ignored business hours, so a 48-hour SLA issued Friday at 5pm was technically due Sunday. The team needed sequential phases with real-world deadline tracking.",
+      "Amazon's largest line of business flagged creative approvals as a bottleneck — too slow, too hard to manage. Static and animated reviews ran in parallel with no dependency chain. Designers were building animated demos for creatives that hadn't even passed static review. SLA deadlines ignored business hours. Every day a creative sat in approval limbo was a day of lost revenue from the campaign flight. This wasn't a technology problem — it was a process problem that no one in my role was expected to solve.",
     solutionNarrative:
-      "I built a two-phase approval workflow: static review first (48h SLA), animated review only after static approval (24h SLA per revision). SLA calculations respect business hours (M-F, 9am-6pm EST). Role-based dashboards show different views for internal teams vs. external clients. Priority grouping by business impact — not arbitrary urgency — so the team works on what matters first. Four platform adapters route approved assets to any downstream system.",
+      "I took action anyway. I built a two-phase approval system from scratch: static review first (48h SLA), animated review only after static approval (24h SLA per revision). SLA calculations respect business hours (M-F, 9am-6pm EST). Priority grouping by business impact ensures the team works on revenue-critical creatives first. The system turned a client complaint into a competitive advantage — it was rolled out company-wide and became a core part of the white-glove service model that retains enterprise accounts.",
     architectureNodes: [
       { id: "workflow", label: "Approval Workflow", description: "8-state machine: Draft → Review → Approved → Integrated → Active", type: "service" },
       { id: "content-dir", label: "Content Director", description: "Claude Sonnet — generates optimized content from briefs", type: "agent" },
