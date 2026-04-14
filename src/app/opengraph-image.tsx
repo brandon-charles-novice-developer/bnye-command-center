@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "B.Nye Command Center — Enterprise Solutions Engineer & AI Systems Builder";
+export const alt = "B.Nye Command Center — Enterprise sales meets AI engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
