@@ -14,7 +14,7 @@ export function Hero() {
             Sales Engineering Command Center
           </p>
           <h1
-            className="text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)] animate-hero-delay-1"
+            className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)] animate-hero-delay-1"
           >
             Brandon Nye
           </h1>

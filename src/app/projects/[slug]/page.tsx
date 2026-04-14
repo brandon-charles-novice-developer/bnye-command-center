@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <div className="mb-[var(--space-xl)]">
         <div className="flex items-start justify-between flex-wrap gap-4 mb-[var(--space-s)]">
           <div>
-            <h1 className="text-[var(--step-4)] font-bold text-text-primary mb-2 leading-[1.1]">
+            <h1 className="heading-display text-[var(--step-4)] font-bold text-text-primary mb-2 leading-[1.1]">
               {project.title}
             </h1>
             <p className="text-[var(--step-1)] text-text-secondary">{project.subtitle}</p>

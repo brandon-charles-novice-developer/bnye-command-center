@@ -16,6 +16,25 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
+    slug: "amazon-dsp-showcase",
+    title: "Amazon DSP Integration Architecture",
+    subtitle: "4-Layer Automated Creative Trafficking Pipeline",
+    description:
+      "Agencies were spending 4+ hours manually trafficking premium rich-media creatives through Amazon DSP. I designed and built a 4-layer integration architecture — creative processing engine, AWS Step Functions orchestration, tag transformation pipeline, and campaign management layer — that reduced activation to under 60 seconds. This walkthrough shows the system architecture, animated pipeline flow, live code transformation, and the business impact: 97% time reduction, 10x capacity increase, and 200-333% CPM premiums unlocked at scale.",
+    demo: "showcase",
+    stack: ["React", "TypeScript", "React Flow", "Framer Motion", "AWS Lambda", "FastAPI"],
+    repoUrl: "https://github.com/brandon-charles-novice-developer/amazon-dsp-process-flow",
+    liveUrl: "https://bnye-amazon-dsp-showcase.vercel.app",
+    metrics: [
+      { label: "Time Reduction", value: "97%" },
+      { label: "Activation", value: "<60s" },
+      { label: "Pipeline Stages", value: "5" },
+      { label: "Capacity", value: "10x" },
+    ],
+    accentColor: "var(--accent-amazon)",
+    designPattern: "Animated System Walkthrough + Progressive Disclosure",
+  },
+  {
     slug: "approval-engine",
     title: "B.Nye Design Approval System",
     subtitle: "Two-Phase Creative Workflow with SLA Tracking",

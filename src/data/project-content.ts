@@ -337,4 +337,67 @@ class EventLog:
                Morning Brief
             (daily priority queue)`,
   },
+  "amazon-dsp-showcase": {
+    slug: "amazon-dsp-showcase",
+    headline: "Premium creatives took 4+ hours to traffic. I built the system that does it in 60 seconds.",
+    problemStatement:
+      "High-impact creative formats — Runway, Venti, Panorama, Billboard — couldn't use Amazon DSP's standard bulk upload tools. Every campaign required manual tag manipulation (stripping IAS pixels, injecting Amazon macros), vendor-specific viewability wrapping, and error-prone handoffs between creative operations, ad ops, and campaign management teams. A single campaign activation took 3-5 hours across multiple people. At 16 LOBs, this didn't scale.",
+    solutionNarrative:
+      "I designed a 4-layer integration architecture: a FastAPI creative processing engine handles tag transformation (IAS removal, Amazon macro injection, viewability wrapping). AWS Step Functions orchestrate the pipeline — 5 Lambda stages from Celtra asset retrieval through DSP upload and verification, tracked in DynamoDB with SNS notifications. A React campaign management layer automates deal creation, audience targeting, and bulk upload sheet generation. The result: what took 4+ hours now completes in under 60 seconds. Premium formats traffic with the same ease as standard banners. 97% time reduction, 10x capacity increase.",
+    architectureNodes: [
+      { id: "celtra", label: "Celtra", description: "Creative asset platform — format detection, approval workflow", type: "integration" },
+      { id: "creative-engine", label: "Creative Processing", description: "FastAPI — IAS tag removal, Amazon macro injection, viewability wrapping", type: "service" },
+      { id: "orchestrator", label: "Workflow Orchestrator", description: "AWS Step Functions — 5 Lambda stages, DynamoDB state tracking", type: "service" },
+      { id: "ssp-seat", label: "SSP DSP Seat", description: "Intermediary platform — creative staging and validation", type: "data" },
+      { id: "amazon-dsp", label: "Amazon DSP", description: "Creative upload, deal management, campaign activation via API", type: "integration" },
+      { id: "campaign-mgmt", label: "Campaign Management", description: "React UI — bulk operations, audience targeting, reporting", type: "service" },
+    ],
+    features: [
+      {
+        title: "Tag Transformation Engine",
+        description: "Regex-based pipeline strips IAS tracking pixels, injects Amazon DSP macros (${AMAZON_CLICK_URL}, ${AMAZON_IMPRESSION_URL}), and wraps for Phase 1 (DV-only) or Phase 2 (IAS S2S + DV) viewability.",
+        codeSnippet: `// Stage 1: Strip IAS tracking
+const IAS_PATTERNS = [
+  /pixel\\.adsafeprotected\\.com/,
+  /fw\\.adsafeprotected\\.com/
+];
+
+// Stage 2: Inject Amazon macros
+tag = tag.replace(
+  '\${CLICK_URL}',
+  '\${AMAZON_CLICK_URL}'
+);`,
+        language: "javascript",
+      },
+      {
+        title: "Step Functions Pipeline",
+        description: "5 Lambda stages execute sequentially: Input Validation → Creative Retrieval (Celtra) → Tag Processing → DSP Upload → Verification. DynamoDB tracks state. SNS notifies on completion.",
+      },
+      {
+        title: "Bulk Upload Generation",
+        description: "Auto-generates 4 Excel sheets (ORDERS, DISPLAY LINE ITEMS, VIDEO LINE ITEMS, CREATIVE ASSOCIATIONS) for Amazon DSP bulk upload — one click for an entire campaign across all formats and LOBs.",
+      },
+      {
+        title: "OAuth Token Management",
+        description: "Amazon DSP API connector with automatic OAuth2 token refresh. Creative upload, line item association, and audit status monitoring through a single authenticated session.",
+      },
+    ],
+    architectureDiagram: `
+┌──────────┐    ┌──────────────────┐    ┌──────────────────┐
+│  Celtra   │───▶│  Creative Engine  │───▶│  Orchestrator    │
+│ (Assets)  │    │  (Tag Transform)  │    │ (Step Functions) │
+└──────────┘    └──────────────────┘    └────────┬─────────┘
+                                                  │
+                              ┌────────────────────┤
+                              ▼                    ▼
+                     ┌──────────────┐    ┌──────────────┐
+                     │  SSP Seat    │───▶│ Amazon DSP   │
+                     │ (Staging)    │    │ (Live)       │
+                     └──────────────┘    └──────┬───────┘
+                                                │
+                                       ┌────────▼────────┐
+                                       │  Campaign Mgmt  │
+                                       │ (Bulk Ops + UI) │
+                                       └─────────────────┘`,
+  },
 };

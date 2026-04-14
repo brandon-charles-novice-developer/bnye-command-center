@@ -1,23 +1,55 @@
-import { GlassCard } from "@/components/ui/GlassCard";
+"use client";
+
+import { motion } from "framer-motion";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const EASE_VERCEL: [number, number, number, number] = [0.33, 0.12, 0.15, 1.0];
 
 const highlights = [
   { value: "$50M+", label: "Revenue Generated", detail: "3.5 years, single enterprise account" },
   { value: "7", label: "Client Testimonials", detail: "4 orgs, unsolicited" },
   { value: "4", label: "Production AI Systems", detail: "Agent SDK, MCP, microservices" },
   { value: "20K+", label: "Lines Shipped", detail: "Python, TypeScript, React" },
-];
+] as const;
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: EASE_VERCEL },
+  },
+};
 
 export function About() {
+  const { ref, visible } = useScrollReveal(0.15);
+
   return (
-    <section id="about" className="px-8 py-[var(--space-3xl)] max-w-6xl mx-auto">
-      {/* Offset two-column layout (anti-AI: visual tension) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-xl)] items-start">
-        {/* Left — narrative, pushed down slightly on desktop */}
-        <div className="lg:col-span-7">
+    <section id="about" className="px-8 py-[var(--space-3xl)] max-w-7xl mx-auto">
+      <motion.div
+        ref={ref}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-xl)] items-start"
+        variants={containerVariants}
+        initial="hidden"
+        animate={visible ? "visible" : "hidden"}
+      >
+        {/* Left — narrative */}
+        <motion.div className="lg:col-span-7" variants={itemVariants}>
           <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-cyan mb-[var(--space-2xs)]">
             About
           </p>
-          <h2 className="text-[var(--step-3)] font-bold text-text-primary mb-[var(--space-m)]">
+          <h2
+            className="text-[var(--step-3)] font-bold text-text-primary mb-[var(--space-m)]"
+            style={{
+              fontFamily: "var(--font-display)",
+              letterSpacing: "var(--tracking-heading)",
+            }}
+          >
             Enterprise sales meets
             <br />
             AI engineering
@@ -41,12 +73,17 @@ export function About() {
               orchestrated through Claude Code.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right — metrics, offset up on desktop for tension */}
         <div className="lg:col-span-5 lg:-mt-8 flex flex-col gap-[var(--space-xs)]">
           {highlights.map((item) => (
-            <GlassCard key={item.label} hover={false}>
+            <motion.div
+              key={item.label}
+              className="glass-light p-5"
+              style={{ borderRadius: 12 }}
+              variants={itemVariants}
+            >
               <div className="flex items-baseline gap-[var(--space-s)]">
                 <span className="text-[var(--step-3)] font-bold gradient-text leading-none shrink-0">
                   {item.value}
@@ -60,10 +97,10 @@ export function About() {
                   </p>
                 </div>
               </div>
-            </GlassCard>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
