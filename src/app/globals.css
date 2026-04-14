@@ -252,6 +252,9 @@ body {
 .stagger > *:nth-child(3) { animation-delay: 160ms; }
 .stagger > *:nth-child(4) { animation-delay: 240ms; }
 .stagger > *:nth-child(5) { animation-delay: 320ms; }
+.stagger > *:nth-child(6) { animation-delay: 400ms; }
+.stagger > *:nth-child(7) { animation-delay: 480ms; }
+.stagger > *:nth-child(8) { animation-delay: 560ms; }
 
 @keyframes stagger-in {
   to {
@@ -318,23 +321,6 @@ body {
 
 .link-underline:hover::after {
   width: 100%;
-}
-
-/* === ASYMMETRIC PROJECT GRID (anti-AI: breaks uniform card grid) === */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-m);
-}
-
-/* First card (flagship) spans 7 columns */
-.project-grid > :nth-child(1) { grid-column: span 7; }
-.project-grid > :nth-child(2) { grid-column: span 5; }
-.project-grid > :nth-child(3) { grid-column: span 5; }
-.project-grid > :nth-child(4) { grid-column: span 7; }
-
-@media (max-width: 768px) {
-  .project-grid > * { grid-column: span 12 !important; }
 }
 
 /* === SECTION DIVIDER (subtle, not a hard line) === */

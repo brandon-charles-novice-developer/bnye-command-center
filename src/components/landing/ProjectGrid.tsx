@@ -16,13 +16,13 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
      Row 3:    [Retail — 5col]  [March Madness — 7col]
    ================================================================ */
 
-// Bento grid placement per project slug
+// Bento grid placement per project slug — md + xl breakpoints
 const gridPlacement: Record<string, string> = {
-  "amazon-dsp-showcase": "md:col-span-8 md:row-span-2",
-  "approval-engine": "md:col-span-4",
-  "job-engine": "md:col-span-4",
-  "retail-dashboard": "md:col-span-5",
-  "march-madness-agent": "md:col-span-7",
+  "amazon-dsp-showcase": "md:col-span-8 md:row-span-2 xl:col-span-7 xl:row-span-2",
+  "approval-engine": "md:col-span-4 xl:col-span-5",
+  "job-engine": "md:col-span-4 xl:col-span-5",
+  "retail-dashboard": "md:col-span-5 xl:col-span-6",
+  "march-madness-agent": "md:col-span-7 xl:col-span-6",
 };
 
 // Flagship tile gets heavy glass, others get medium
@@ -76,7 +76,7 @@ export function ProjectGrid() {
       <motion.div
         ref={ref}
         className="grid grid-cols-1 md:grid-cols-12 gap-[var(--space-s)]"
-        style={{ gridAutoRows: "minmax(220px, auto)" }}
+        style={{ gridAutoRows: "minmax(240px, auto)" }}
         variants={staggerVariants}
         initial="hidden"
         animate={visible ? "visible" : "hidden"}
@@ -128,7 +128,7 @@ export function ProjectGrid() {
 
                     {/* Description — flagship only, truncated for others */}
                     {isFlagship && (
-                      <p className="text-[var(--step--1)] text-text-secondary leading-relaxed mb-[var(--space-s)] line-clamp-3">
+                      <p className="text-[var(--step--1)] text-text-secondary leading-relaxed mb-[var(--space-s)]">
                         {project.description}
                       </p>
                     )}
@@ -136,7 +136,7 @@ export function ProjectGrid() {
 
                   {/* Stack badges */}
                   <div className="flex flex-wrap gap-1.5 mb-[var(--space-s)]">
-                    {project.stack.slice(0, isFlagship ? 6 : 4).map((tech) => (
+                    {project.stack.slice(0, isFlagship ? 6 : 3).map((tech) => (
                       <Badge key={tech} label={tech} />
                     ))}
                   </div>
