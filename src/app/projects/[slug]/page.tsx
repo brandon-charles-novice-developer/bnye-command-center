@@ -32,7 +32,20 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <ContentContainer className="pt-24 pb-16">
+    <ContentContainer
+      className="pt-24 pb-16 relative"
+      style={{
+        "--page-accent": project.accentColor,
+      } as React.CSSProperties}
+    >
+      {/* Per-project accent glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background: `radial-gradient(ellipse at 50% 0%, ${project.accentColor}10 0%, transparent 70%)`,
+        }}
+      />
+
       {/* Back link */}
       <Link
         href="/#projects"
@@ -89,10 +102,10 @@ export default async function ProjectPage({ params }: PageProps) {
       </div>
 
       {/* Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-[var(--space-xl)]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--space-s)] mb-[var(--space-xl)]">
         {project.metrics.map((metric) => (
           <GlassCard key={metric.label} hover={false} className="text-center">
-            <p className="text-[var(--step-2)] font-bold gradient-text">{metric.value}</p>
+            <p className="text-[var(--step-1)] font-bold gradient-text">{metric.value}</p>
             <p className="text-[var(--step--2)] text-text-tertiary mt-1">{metric.label}</p>
           </GlassCard>
         ))}

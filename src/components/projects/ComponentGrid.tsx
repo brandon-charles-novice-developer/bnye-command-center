@@ -21,10 +21,10 @@ interface ComponentGridProps {
 
 export function ComponentGrid({ nodes }: ComponentGridProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-xs)]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[var(--space-xs)]">
       {nodes.map((node) => (
         <GlassCard key={node.id} hover={false} className="flex flex-col">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-[var(--space-3xs)]">
             <span className={`text-[var(--step--2)] font-mono font-medium ${typeColors[node.type]}`}>
               {typeLabels[node.type]}
             </span>

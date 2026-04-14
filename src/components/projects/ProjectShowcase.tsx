@@ -12,9 +12,9 @@ interface ProjectShowcaseProps {
 export function ProjectShowcase({ project, content }: ProjectShowcaseProps) {
   return (
     <div className="space-y-[var(--space-2xl)]">
-      {/* Problem / Solution */}
+      {/* Problem / Solution — equal split for balanced reading */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-l)]">
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-6">
           <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-primary mb-[var(--space-2xs)]">
             Problem
           </p>
@@ -22,7 +22,7 @@ export function ProjectShowcase({ project, content }: ProjectShowcaseProps) {
             {content.problemStatement}
           </p>
         </div>
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-6">
           <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-teal mb-[var(--space-2xs)]">
             Solution
           </p>
@@ -32,7 +32,7 @@ export function ProjectShowcase({ project, content }: ProjectShowcaseProps) {
         </div>
       </section>
 
-      <div className="section-divider" />
+      <div className="section-divider max-w-[80%] mx-auto" />
 
       {/* Architecture Diagram */}
       <section>
@@ -53,7 +53,7 @@ export function ProjectShowcase({ project, content }: ProjectShowcaseProps) {
         <ComponentGrid nodes={content.architectureNodes} />
       </section>
 
-      <div className="section-divider" />
+      <div className="section-divider max-w-[80%] mx-auto" />
 
       {/* Features + Code Snippets */}
       <section>
