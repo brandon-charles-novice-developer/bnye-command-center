@@ -60,7 +60,7 @@ export function ProjectGrid() {
   const { ref, visible } = useScrollReveal(0.1);
 
   return (
-    <ContentContainer as="section" className="py-16" id="projects">
+    <ContentContainer as="section" className="py-[var(--space-2xl)]" id="projects">
       <div className="mb-[var(--space-xl)]">
         <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-primary mb-[var(--space-2xs)]">
           Portfolio
@@ -143,7 +143,7 @@ export function ProjectGrid() {
 
                   {/* Metrics bar */}
                   <div className="pt-[var(--space-xs)]" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                    <div className={`grid gap-3 ${isFlagship ? "grid-cols-4" : "grid-cols-2"}`}>
+                    <div className={`grid gap-[var(--space-2xs)] ${isFlagship ? "grid-cols-4" : "grid-cols-2"}`}>
                       {project.metrics.slice(0, isFlagship ? 4 : 2).map((metric) => (
                         <div key={metric.label}>
                           <p className="text-[var(--step-0)] font-bold text-text-primary leading-none mb-0.5">

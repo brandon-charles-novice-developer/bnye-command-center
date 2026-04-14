@@ -29,7 +29,7 @@ export function ComponentGrid({ nodes }: ComponentGridProps) {
               {typeLabels[node.type]}
             </span>
           </div>
-          <h4 className="text-[var(--step--1)] font-semibold text-text-primary mb-1">
+          <h4 className="text-[var(--step--1)] font-semibold text-text-primary mb-[var(--space-3xs)]">
             {node.label}
           </h4>
           <p className="text-[var(--step--2)] text-text-tertiary leading-relaxed">

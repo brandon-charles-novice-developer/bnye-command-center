@@ -2,8 +2,8 @@ import { ContentContainer } from "@/components/ui/ContentContainer";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 py-8">
-      <ContentContainer className="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="border-t border-white/5 py-[var(--space-m)]">
+      <ContentContainer className="flex flex-col sm:flex-row items-center justify-between gap-[var(--space-xs)]">
         <p className="text-sm text-text-tertiary">
           Built by Brandon Nye with Claude Code, Figma MCP, and Next.js
         </p>

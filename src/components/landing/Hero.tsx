@@ -8,7 +8,7 @@ export function Hero() {
       <div className="absolute bottom-[20%] left-[5%] w-[clamp(200px,22vw,400px)] h-[clamp(200px,22vw,400px)] rounded-full bg-accent-purple/[0.04] blur-[100px] pointer-events-none" />
 
       {/* Content — centered for desktop */}
-      <ContentContainer className="relative z-10 pt-24 text-center">
+      <ContentContainer className="relative z-10 pt-[var(--space-3xl)] text-center">
         <h1
           className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)] mx-auto max-w-4xl"
         >
@@ -28,7 +28,7 @@ export function Hero() {
           Production AI orchestration that bridges enterprise sales, agentic
           workflows, and technical implementation.
         </p>
-        <div className="flex items-center justify-center gap-4 animate-hero-delay-3">
+        <div className="flex items-center justify-center gap-[var(--space-xs)] animate-hero-delay-3">
           <a
             href="#projects"
             className="gradient-primary btn-spring px-7 py-3.5 rounded-xl text-[var(--step--1)] font-semibold text-white"
@@ -54,7 +54,7 @@ export function Hero() {
       </ContentContainer>
 
       {/* Scroll indicator — centered */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 text-text-tertiary animate-hero-delay-3">
+      <div className="absolute bottom-[var(--space-m)] left-1/2 -translate-x-1/2 flex items-center gap-[var(--space-2xs)] text-text-tertiary animate-hero-delay-3">
         <div className="w-8 h-px bg-text-tertiary" />
         <span className="text-[var(--step--2)] tracking-[0.2em] uppercase">Scroll</span>
       </div>

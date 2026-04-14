@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <ContentContainer
-      className="pt-24 pb-16 relative"
+      className="pt-[var(--space-3xl)] pb-[var(--space-2xl)] relative"
       style={{
         "--page-accent": project.accentColor,
       } as React.CSSProperties}
@@ -56,14 +56,14 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {/* Header — left-aligned, not centered */}
       <div className="mb-[var(--space-xl)]">
-        <div className="flex items-start justify-between flex-wrap gap-4 mb-[var(--space-s)]">
+        <div className="flex items-start justify-between flex-wrap gap-[var(--space-xs)] mb-[var(--space-s)]">
           <div>
-            <h1 className="heading-display text-[var(--step-4)] font-bold text-text-primary mb-2 leading-[1.1]">
+            <h1 className="heading-display text-[var(--step-4)] font-bold text-text-primary mb-[var(--space-3xs)] leading-[1.1]">
               {project.title}
             </h1>
             <p className="text-[var(--step-1)] text-text-secondary">{project.subtitle}</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-[var(--space-2xs)]">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
@@ -106,7 +106,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {project.metrics.map((metric) => (
           <GlassCard key={metric.label} hover={false} className="text-center">
             <p className="text-[var(--step-1)] font-bold gradient-text">{metric.value}</p>
-            <p className="text-[var(--step--2)] text-text-tertiary mt-1">{metric.label}</p>
+            <p className="text-[var(--step--2)] text-text-tertiary mt-[var(--space-3xs)]">{metric.label}</p>
           </GlassCard>
         ))}
       </div>
