@@ -101,6 +101,13 @@ export default async function ProjectPage({ params }: PageProps) {
         </p>
       </div>
 
+      {/* Headline pull-quote — per-project hero moment */}
+      {projectContent[project.slug]?.headline && (
+        <blockquote className="text-[var(--step-2)] font-bold text-text-primary leading-snug max-w-4xl mb-[var(--space-xl)]">
+          <span className="gradient-text">{projectContent[project.slug].headline}</span>
+        </blockquote>
+      )}
+
       {/* Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--space-s)] mb-[var(--space-xl)]">
         {project.metrics.map((metric) => (
