@@ -26,7 +26,7 @@ export function Hero() {
             <span className="text-text-tertiary">&amp; AI Systems Builder</span>
           </p>
           <p
-            className="text-[var(--step-0)] text-text-tertiary max-w-lg mb-[var(--space-l)] animate-hero-delay-3 leading-relaxed"
+            className="text-[var(--step-0)] text-text-tertiary max-w-lg mb-[var(--space-l)] leading-relaxed"
           >
             Production AI orchestration systems that bridge enterprise sales,
             agentic workflows, and technical implementation.
