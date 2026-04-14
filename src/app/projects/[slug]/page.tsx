@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <div className="pt-24 pb-[var(--space-3xl)] px-8 max-w-5xl mx-auto">
+    <div className="pt-24 pb-16 px-6 max-w-[1200px] mx-auto">
       {/* Back link */}
       <Link
         href="/#projects"

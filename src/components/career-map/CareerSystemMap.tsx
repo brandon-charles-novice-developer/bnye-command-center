@@ -104,7 +104,7 @@ function MapCanvas() {
     <div ref={sectionRef} className="relative w-full" style={{ height: "min(80vh, 700px)" }}>
       {/* Section header */}
       <motion.div
-        className="absolute top-0 left-0 z-10 px-8 pt-4"
+        className="absolute top-0 left-0 z-10 px-6 pt-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: hasBooted ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -172,7 +172,7 @@ function MapCanvas() {
 
 export function CareerSystemMap() {
   return (
-    <section className="relative px-8 py-[var(--space-2xl)] max-w-7xl mx-auto">
+    <section className="relative px-6 py-16 max-w-[1200px] mx-auto">
       <ReactFlowProvider>
         <MapCanvas />
       </ReactFlowProvider>

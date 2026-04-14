@@ -59,7 +59,7 @@ export function ProjectGrid() {
   const { ref, visible } = useScrollReveal(0.1);
 
   return (
-    <section id="projects" className="px-8 py-[var(--space-3xl)] max-w-7xl mx-auto">
+    <section id="projects" className="px-6 py-16 max-w-[1200px] mx-auto">
       <div className="mb-[var(--space-xl)]">
         <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-primary mb-[var(--space-2xs)]">
           Portfolio

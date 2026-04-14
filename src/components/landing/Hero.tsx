@@ -6,7 +6,7 @@ export function Hero() {
       <div className="absolute bottom-[20%] left-[5%] w-[350px] h-[350px] rounded-full bg-accent-purple/[0.04] blur-[100px] pointer-events-none" />
 
       {/* Content — LEFT aligned, single column, no proof stack */}
-      <div className="relative z-10 max-w-6xl mx-auto px-8 w-full pt-24">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full pt-24">
         <h1
           className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)]"
         >
@@ -52,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator — bottom left */}
-      <div className="absolute bottom-8 left-8 flex items-center gap-3 text-text-tertiary animate-hero-delay-3">
+      <div className="absolute bottom-8 left-6 flex items-center gap-3 text-text-tertiary animate-hero-delay-3">
         <div className="w-8 h-px bg-text-tertiary" />
         <span className="text-[var(--step--2)] tracking-[0.2em] uppercase">Scroll</span>
       </div>
