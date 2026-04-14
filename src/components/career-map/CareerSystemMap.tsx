@@ -16,25 +16,11 @@ import { MAP_NODES, MAP_EDGES } from "@/data/system-map";
 import { MapNode } from "./MapNode";
 import { AnimatedMapEdge } from "./AnimatedMapEdge";
 
-/* ================================================================
-   CareerSystemMap — Progressive boot animation component.
-   ================================================================
-   Boot sequence (5-8s, interruptible):
-     1. Background grid fades in (0-0.5s)
-     2. Core node appears with pulse (0.3-1s)
-     3. Edges extend from core → domains materialize (1-2.5s)
-     4. Edges extend to skills → skill nodes appear (2.5-4s)
-     5. Edges extend to projects → project nodes appear (4-6s)
-     6. Settled — interactive (6s+)
-
-   IntersectionObserver triggers the boot only when visible.
-   ================================================================ */
-
 const nodeTypes: NodeTypes = { mapNode: MapNode };
 const edgeTypes: EdgeTypes = { animatedMapEdge: AnimatedMapEdge };
 
-// Boot timing: delay before each tier starts revealing (ms)
-const BOOT_DELAYS = [300, 1000, 2500, 4000] as const;
+// Boot timing: tier 0 instant (no blank canvas), then progressive reveal
+const BOOT_DELAYS = [0, 800, 2000, 3500] as const;
 
 function MapCanvas() {
   const [activeTier, setActiveTier] = useState(-1);
@@ -69,14 +55,13 @@ function MapCanvas() {
     return () => timers.forEach(clearTimeout);
   }, [hasBooted]);
 
-  // Fit view after all nodes are visible
+  // Fit view on every tier change — keeps map centered as nodes appear
   useEffect(() => {
-    if (activeTier >= 3) {
-      const timer = setTimeout(() => {
-        fitView({ padding: 0.05, duration: 800 });
-      }, 600);
-      return () => clearTimeout(timer);
-    }
+    if (activeTier < 0) return;
+    const timer = setTimeout(() => {
+      fitView({ padding: 0.08, duration: 800 });
+    }, activeTier >= 3 ? 600 : 300);
+    return () => clearTimeout(timer);
   }, [activeTier, fitView]);
 
   // Filter nodes and edges by active tier
@@ -101,7 +86,7 @@ function MapCanvas() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative w-full" style={{ height: "min(80vh, 700px)" }}>
+    <div ref={sectionRef} className="relative w-full" style={{ height: "min(85vh, 800px)" }}>
       {/* Section header */}
       <motion.div
         className="absolute top-0 left-0 z-10 px-6 pt-4"
@@ -133,39 +118,47 @@ function MapCanvas() {
         )}
       </AnimatePresence>
 
-      {/* React Flow canvas */}
-      <motion.div
-        className="w-full h-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hasBooted ? 1 : 0 }}
-        transition={{ duration: 0.8 }}
+      {/* Edge-fade masks — prevent abrupt clipping at edges */}
+      <div className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+        }}
       >
-        <ReactFlow
-          nodes={visibleNodes}
-          edges={visibleEdges}
-          nodeTypes={nodeTypes}
-          edgeTypes={edgeTypes}
-          fitView
-          fitViewOptions={{ padding: 0.05 }}
-          minZoom={0.4}
-          maxZoom={1.5}
-          panOnDrag
-          zoomOnScroll={false}
-          zoomOnPinch
-          preventScrolling={false}
-          nodesDraggable={false}
-          nodesConnectable={false}
-          elementsSelectable={false}
-          proOptions={{ hideAttribution: true }}
+        {/* React Flow canvas */}
+        <motion.div
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: hasBooted ? 1 : 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <Background
-            variant={BackgroundVariant.Dots}
-            gap={32}
-            size={1}
-            color="rgba(255, 255, 255, 0.04)"
-          />
-        </ReactFlow>
-      </motion.div>
+          <ReactFlow
+            nodes={visibleNodes}
+            edges={visibleEdges}
+            nodeTypes={nodeTypes}
+            edgeTypes={edgeTypes}
+            fitView
+            fitViewOptions={{ padding: 0.08 }}
+            minZoom={0.4}
+            maxZoom={1.5}
+            panOnDrag
+            zoomOnScroll={false}
+            zoomOnPinch
+            preventScrolling={false}
+            nodesDraggable={false}
+            nodesConnectable={false}
+            elementsSelectable={false}
+            proOptions={{ hideAttribution: true }}
+          >
+            <Background
+              variant={BackgroundVariant.Dots}
+              gap={32}
+              size={1}
+              color="rgba(255, 255, 255, 0.04)"
+            />
+          </ReactFlow>
+        </motion.div>
+      </div>
     </div>
   );
 }

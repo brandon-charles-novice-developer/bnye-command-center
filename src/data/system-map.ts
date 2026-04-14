@@ -48,11 +48,11 @@ function pos(
 
 // --- Layout radii (Y-axis, X is auto-scaled by ASPECT) ---
 const DOMAIN_RADIUS = 220;
-const SKILL_RADIUS = 400;
-const PROJECT_RADIUS = 560;
+const SKILL_RADIUS = 350;
+const PROJECT_RADIUS = 480;
 
-// --- Skill fan: ±25° around parent domain angle ---
-const SKILL_SPREAD = 25;
+// --- Skill fan: ±32° around parent domain angle ---
+const SKILL_SPREAD = 32;
 
 export const MAP_NODES: Node<MapNodeData>[] = [
   // ── Tier 0: Core ──
