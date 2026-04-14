@@ -8,14 +8,14 @@ export function Hero() {
       {/* Content — LEFT aligned, single column, no proof stack */}
       <div className="relative z-10 max-w-6xl mx-auto px-8 w-full pt-24">
         <h1
-          className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)] animate-hero"
+          className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)]"
         >
           Enterprise sales meets
           <br />
           <span className="gradient-text">AI engineering</span>
         </h1>
         <p
-          className="text-[var(--step-1)] text-text-secondary leading-relaxed max-w-2xl mb-[var(--space-xs)] animate-hero-delay-1"
+          className="text-[var(--step-1)] text-text-secondary leading-relaxed max-w-2xl mb-[var(--space-xs)]"
         >
           8+ years on both sides of digital advertising. $50M+ in enterprise
           revenue. Then I built the AI systems.
