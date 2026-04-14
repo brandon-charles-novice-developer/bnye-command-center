@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://brandonnye.pro"),
   title: "B.Nye Command Center | Brandon Nye",
   description:
     "Sales Engineering Command Center — production AI systems, autonomous agents, and enterprise solutions. Built by Brandon Nye.",
@@ -23,6 +24,13 @@ export const metadata: Metadata = {
     description:
       "Enterprise Solutions Engineer & AI Systems Builder. 20K+ lines of shipped code. 4 autonomous agents. One portfolio.",
     type: "website",
+    siteName: "B.Nye Command Center",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "B.Nye Command Center",
+    description:
+      "Enterprise Solutions Engineer & AI Systems Builder. 20K+ lines of shipped code. 4 autonomous agents.",
   },
 };
 

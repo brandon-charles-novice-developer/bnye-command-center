@@ -256,7 +256,7 @@
   /* Existing — unchanged */
   --text-primary: #F5F5FA;
   --text-secondary: #AEAEC2;
-  --text-tertiary: #73738F;
+  --text-tertiary: #7E7E9A;
   /* New — quaternary for decorative/disabled text.
      Adapted from Linear's --color-text-quaternary concept. */
   --text-quaternary: #4A4A66;
