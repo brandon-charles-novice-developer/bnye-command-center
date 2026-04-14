@@ -1,6 +1,6 @@
 import { Hero } from "@/components/landing/Hero";
-import { ProjectGrid } from "@/components/landing/ProjectGrid";
-import { About } from "@/components/landing/About";
+import { ProjectGridLoader } from "@/components/landing/ProjectGridLoader";
+import { AboutLoader } from "@/components/landing/AboutLoader";
 import { CareerSystemMapLoader } from "@/components/career-map/CareerSystemMapLoader";
 
 export default function Home() {
@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Hero />
       <CareerSystemMapLoader />
-      <ProjectGrid />
-      <About />
+      <ProjectGridLoader />
+      <AboutLoader />
     </>
   );
 }
