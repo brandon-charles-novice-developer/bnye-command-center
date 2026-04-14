@@ -5,7 +5,8 @@ import type { Node, Edge } from "@xyflow/react";
    ================================================================
    Topology: Core → Domains → Skills → Projects
    Boot animation proceeds tier-by-tier from center outward.
-   Radial layout centered at (700, 550), generous spacing.
+   Elliptical layout — wide horizontal spread for desktop viewing.
+   Center at (900, 400), X-radius stretched ~1.8x vs Y-radius.
    ================================================================ */
 
 export type MapNodeKind = "core" | "domain" | "skill" | "project";
@@ -28,24 +29,30 @@ export interface MapEdgeData {
   [key: string]: unknown;
 }
 
-// --- Radial position helper ---
-const CX = 700;
-const CY = 550;
-function pos(radius: number, angleDeg: number): { x: number; y: number } {
+// --- Elliptical position helper ---
+const CX = 900;
+const CY = 400;
+// Aspect ratio: X is 1.8x wider than Y for a landscape oval
+const ASPECT = 1.8;
+
+function pos(
+  radiusY: number,
+  angleDeg: number,
+): { x: number; y: number } {
   const rad = ((angleDeg - 90) * Math.PI) / 180;
   return {
-    x: Math.round(CX + radius * Math.cos(rad)),
-    y: Math.round(CY + radius * Math.sin(rad)),
+    x: Math.round(CX + radiusY * ASPECT * Math.cos(rad)),
+    y: Math.round(CY + radiusY * Math.sin(rad)),
   };
 }
 
-// --- Layout radii — generous spacing between rings ---
-const DOMAIN_RADIUS = 300;
-const SKILL_RADIUS = 580;
-const PROJECT_RADIUS = 820;
+// --- Layout radii (Y-axis, X is auto-scaled by ASPECT) ---
+const DOMAIN_RADIUS = 220;
+const SKILL_RADIUS = 400;
+const PROJECT_RADIUS = 560;
 
-// --- Skill fan: ±30° around parent domain angle ---
-const SKILL_SPREAD = 30;
+// --- Skill fan: ±25° around parent domain angle ---
+const SKILL_SPREAD = 25;
 
 export const MAP_NODES: Node<MapNodeData>[] = [
   // ── Tier 0: Core ──
@@ -310,7 +317,7 @@ export const MAP_NODES: Node<MapNodeData>[] = [
   {
     id: "proj-madness",
     type: "mapNode",
-    position: pos(PROJECT_RADIUS, 260), // left-bottom: Data-heavy
+    position: pos(PROJECT_RADIUS, 265), // left-bottom: Data-heavy
     data: {
       label: "March Madness Pipeline",
       subtitle: "Autonomous ETL + Fuzzy Matching",

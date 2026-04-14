@@ -73,7 +73,7 @@ function MapCanvas() {
   useEffect(() => {
     if (activeTier >= 3) {
       const timer = setTimeout(() => {
-        fitView({ padding: 0.15, duration: 800 });
+        fitView({ padding: 0.05, duration: 800 });
       }, 600);
       return () => clearTimeout(timer);
     }
@@ -146,7 +146,7 @@ function MapCanvas() {
           nodeTypes={nodeTypes}
           edgeTypes={edgeTypes}
           fitView
-          fitViewOptions={{ padding: 0.2 }}
+          fitViewOptions={{ padding: 0.05 }}
           minZoom={0.4}
           maxZoom={1.5}
           panOnDrag
@@ -172,7 +172,7 @@ function MapCanvas() {
 
 export function CareerSystemMap() {
   return (
-    <section className="relative px-6 py-16 max-w-[1200px] mx-auto">
+    <section className="relative py-16 w-full">
       <ReactFlowProvider>
         <MapCanvas />
       </ReactFlowProvider>
