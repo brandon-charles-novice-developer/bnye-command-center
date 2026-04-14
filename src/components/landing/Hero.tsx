@@ -1,32 +1,34 @@
+import { ContentContainer } from "@/components/ui/ContentContainer";
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-grid overflow-hidden">
-      {/* Ambient orbs — asymmetric placement */}
-      <div className="absolute top-[15%] right-[10%] w-[500px] h-[500px] rounded-full bg-accent-primary/[0.04] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[5%] w-[350px] h-[350px] rounded-full bg-accent-purple/[0.04] blur-[100px] pointer-events-none" />
+      {/* Ambient orbs — viewport-responsive sizing */}
+      <div className="absolute top-[15%] right-[10%] w-[clamp(300px,30vw,550px)] h-[clamp(300px,30vw,550px)] rounded-full bg-accent-primary/[0.04] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] left-[5%] w-[clamp(200px,22vw,400px)] h-[clamp(200px,22vw,400px)] rounded-full bg-accent-purple/[0.04] blur-[100px] pointer-events-none" />
 
-      {/* Content — LEFT aligned, single column, no proof stack */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full pt-24">
+      {/* Content — centered for desktop */}
+      <ContentContainer className="relative z-10 pt-24 text-center">
         <h1
-          className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)]"
+          className="heading-display text-[var(--step-5)] font-bold text-text-primary leading-[1.1] mb-[var(--space-s)] mx-auto max-w-4xl"
         >
           Enterprise sales meets
           <br />
           <span className="gradient-text">AI engineering</span>
         </h1>
         <p
-          className="text-[var(--step-1)] text-text-secondary leading-relaxed max-w-2xl mb-[var(--space-xs)]"
+          className="text-[var(--step-1)] text-text-secondary leading-relaxed max-w-2xl mx-auto mb-[var(--space-xs)]"
         >
           8+ years on both sides of digital advertising. $50M+ in enterprise
           revenue. Then I built the AI systems.
         </p>
         <p
-          className="text-[var(--step-0)] text-text-tertiary max-w-xl mb-[var(--space-l)] leading-relaxed animate-hero-delay-2"
+          className="text-[var(--step-0)] text-text-tertiary max-w-xl mx-auto mb-[var(--space-l)] leading-relaxed animate-hero-delay-2"
         >
           Production AI orchestration that bridges enterprise sales, agentic
           workflows, and technical implementation.
         </p>
-        <div className="flex items-center gap-4 animate-hero-delay-3">
+        <div className="flex items-center justify-center gap-4 animate-hero-delay-3">
           <a
             href="#projects"
             className="gradient-primary btn-spring px-7 py-3.5 rounded-xl text-[var(--step--1)] font-semibold text-white"
@@ -49,10 +51,10 @@ export function Hero() {
             Brandon Nye
           </p>
         </div>
-      </div>
+      </ContentContainer>
 
-      {/* Scroll indicator — bottom left */}
-      <div className="absolute bottom-8 left-6 flex items-center gap-3 text-text-tertiary animate-hero-delay-3">
+      {/* Scroll indicator — centered */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 text-text-tertiary animate-hero-delay-3">
         <div className="w-8 h-px bg-text-tertiary" />
         <span className="text-[var(--step--2)] tracking-[0.2em] uppercase">Scroll</span>
       </div>

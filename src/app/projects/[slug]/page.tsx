@@ -5,6 +5,7 @@ import { projects } from "@/data/projects";
 import { projectContent } from "@/data/project-content";
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { ContentContainer } from "@/components/ui/ContentContainer";
 import { ProjectShowcase } from "@/components/projects/ProjectShowcase";
 
 interface PageProps {
@@ -31,7 +32,7 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <div className="pt-24 pb-16 px-6 max-w-[1200px] mx-auto">
+    <ContentContainer className="pt-24 pb-16">
       {/* Back link */}
       <Link
         href="/#projects"
@@ -82,7 +83,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
 
         {/* Description */}
-        <p className="text-[var(--step-0)] text-text-secondary leading-relaxed max-w-3xl">
+        <p className="text-[var(--step-0)] text-text-secondary leading-relaxed max-w-4xl">
           {project.description}
         </p>
       </div>
@@ -110,6 +111,6 @@ export default async function ProjectPage({ params }: PageProps) {
           </p>
         </GlassCard>
       )}
-    </div>
+    </ContentContainer>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { Badge } from "@/components/ui/Badge";
+import { ContentContainer } from "@/components/ui/ContentContainer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 /* ================================================================
@@ -59,7 +60,7 @@ export function ProjectGrid() {
   const { ref, visible } = useScrollReveal(0.1);
 
   return (
-    <section id="projects" className="px-6 py-16 max-w-[1200px] mx-auto">
+    <ContentContainer as="section" className="py-16" id="projects">
       <div className="mb-[var(--space-xl)]">
         <p className="text-[var(--step--2)] font-semibold tracking-[0.25em] uppercase text-accent-primary mb-[var(--space-2xs)]">
           Portfolio
@@ -169,6 +170,6 @@ export function ProjectGrid() {
           );
         })}
       </motion.div>
-    </section>
+    </ContentContainer>
   );
 }

@@ -1,7 +1,9 @@
+import { ContentContainer } from "@/components/ui/ContentContainer";
+
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 px-6 py-8">
-      <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="border-t border-white/5 py-8">
+      <ContentContainer className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-text-tertiary">
           Built by Brandon Nye with Claude Code, Figma MCP, and Next.js
         </p>
@@ -23,7 +25,7 @@ export function Footer() {
             LinkedIn
           </a>
         </div>
-      </div>
+      </ContentContainer>
     </footer>
   );
 }
